@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="example-fill-remaining-space"></span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/register" routerLinkActive="active">Register</button>
+    <button mat-button>About</button>
+    <button mat-button>Contact</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput #input minlength="8" placeholder="User ID" formControlName="userid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userid.errors }" required>
+              <mat-error *ngIf="f.userid.hasError('required')">
+                  User id is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+              <mat-error *ngIf="f.password.hasError('required')">
+                  Password is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+          <td>
+            <mat-card-actions>
+              <button mat-raised-button color="primary">SignIn</button>
+            </mat-card-actions>
+          </td>
+        </tr>
+        </table>
+    </form>
+  </mat-card-content>
+</mat-card>
